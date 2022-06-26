@@ -5,6 +5,9 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import counterReducer from './store/reducers/Counter';
 import Counter from './containers/Counter/Counter';
+import Navbar from './components/navbar/NavBar';
+import Banner from './components/banner/Banner';
+import Popular from './components/popular/Popular';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -37,7 +40,9 @@ class App extends Component {
   render() {
     return (
       <div className="app">
-        <Counter />
+        <Navbar />
+        <Banner />
+        <Popular />
       </div>
     );
   }

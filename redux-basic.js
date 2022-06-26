@@ -2,16 +2,19 @@ const redux = require('redux');
 const createStore = redux.createStore;
 
 const initialState = {
-  counter: 0
+  data: {},
 };
 
 // Reducer
 const reducer = (state = initialState, action) => {
-  
-  const stateClone = {...state};
-  switch(action.type) {
-    case 'INC_COUNTER': ++stateClone.counter; break;
-    case 'DEC_COUNTER': --stateClone.counter; break;
+  const stateClone = { ...state };
+  switch (action.type) {
+    case 'INC_COUNTER':
+      ++stateClone.counter;
+      break;
+    case 'DEC_COUNTER':
+      --stateClone.counter;
+      break;
   }
   return state;
 };

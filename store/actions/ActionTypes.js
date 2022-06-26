@@ -1,3 +1,3 @@
-export const COUNTER_INCREMENT = 'GET_';
+export const GET_TRENDING = 'GET_TRENDING';
 export const COUNTER_DECREMENT = 'COUNTER_DECREMENT';
 export const COUNTER_ADD = 'COUNTER_ADD';
