@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Navbar, Container, Nav, NavDropdown, Button } from 'react-bootstrap';
+import './style.css'
 
 class NavBar extends Component {
   render() {
     return (
-      <Navbar bg="light" expand="lg">
+      <div className="NavBar">
+        <Navbar bg="light" expand="lg">
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -26,6 +28,7 @@ class NavBar extends Component {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
+      </div>
     );
   }
 }
