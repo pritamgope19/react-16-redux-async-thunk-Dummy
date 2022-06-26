@@ -19,14 +19,13 @@ class Popular extends Component {
           </div>
         </div>
         <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Img
+            variant="top"
+            src="https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg"
+          />
           <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Card.Title>The Shawshank Redemption</Card.Title>
+            <Card.Text>1994-09-23</Card.Text>
           </Card.Body>
         </Card>
       </div>
