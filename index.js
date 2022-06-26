@@ -4,7 +4,6 @@ import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import counterReducer from './store/reducers/Counter';
-import Counter from './containers/Counter/Counter';
 import Navbar from './components/navbar/NavBar';
 import Banner from './components/banner/Banner';
 import Popular from './components/popular/Popular';

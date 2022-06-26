@@ -1,3 +1,3 @@
-export const GET_TRENDING = 'GET_TRENDING';
-export const COUNTER_DECREMENT = 'COUNTER_DECREMENT';
-export const COUNTER_ADD = 'COUNTER_ADD';
+export const GET_TRENDING = 'trending';
+export const GET_TOPRATED = '/movie/top_rated';
+export const GET_POPULAR = '/movie/popular';

@@ -1,28 +1,30 @@
 import * as actionTypes from './ActionTypes';
 
-export const increment = () => {
+export const getTrending = () => {
   return {
-    type: actionTypes.COUNTER_INCREMENT
+    type: actionTypes.GET_TRENDING,
+    value: payload.value,
   };
 };
 
-export const decrement = () => {
+export const getTopRated = () => {
   return {
-    type: actionTypes.COUNTER_DECREMENT
+    type: actionTypes.GET_TOPRATED,
+    value: payload.value,
   };
 };
 
-export const add = (payload = {}) => {
+export const getPopular = (payload = {}) => {
   return {
-    type: actionTypes.COUNTER_ADD,
-    value: payload.value
+    type: actionTypes.GET_POPULAR,
+    value: payload.value,
   };
 };
 
 export const asyncAction = (value) => {
-  return dispatch => {
+  return (dispatch) => {
     setTimeout(() => {
-      dispatch(add({value: value}));
-    }, 2000)
-  }
+      dispatch(add({ value: value }));
+    }, 2000);
+  };
 };

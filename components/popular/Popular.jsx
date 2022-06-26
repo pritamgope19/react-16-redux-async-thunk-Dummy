@@ -7,7 +7,17 @@ class Popular extends Component {
   render() {
     return (
       <div className="popular">
-        <h3>What's Popular</h3>
+        <div className="whatsPopular">
+          <div>
+            <h3>What's Popular</h3>
+          </div>
+          <div className="selectList">
+            <a className="selected">Streaming</a>
+            <a>On TV</a>
+            <a>For Rent</a>
+            <a>In Theaters</a>
+          </div>
+        </div>
         <Card style={{ width: '18rem' }}>
           <Card.Img variant="top" src="holder.js/100px180" />
           <Card.Body>
