@@ -5,55 +5,39 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as creators from '../../store/actions/ActionCreator';
 
 export default function () {
-  const { media_type, setMedia_type } = useState('all');
-  const { time_window, setTime_window } = useState('day');
+  const [media_type, setMedia_type] = useState('all');
+  const [time_window, setTime_window] = useState('day');
+  // setMedia_type('all');
+  // setTime_window('day');
 
   const trending = useSelector((state) => {
-    return state.trending;
+    return state.apiData.trending;
   });
   const dispatch = useDispatch();
   console.log('media_type', media_type, time_window);
 
   dispatch(creators.getTrending(`trending/${media_type}/${time_window}`));
+  console.log('trending', trending);
+
+  const imgBasePath = 'https://image.tmdb.org/t/p/original';
+
   return (
     <Carousel>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=373940"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=282c34"
-          alt="Second slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=20232a"
-          alt="Third slide"
-        />
-
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+      {trending.map((item) => {
+        return (
+          <Carousel.Item>
+            <img
+              className="d-block w-100"
+              src={imgBasePath + item.backdrop_path}
+              alt="First slide"
+            />
+            <Carousel.Caption>
+              <h3>{item.original_title}</h3>
+              <p>{item.overview}</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        );
+      })}
     </Carousel>
   );
 }

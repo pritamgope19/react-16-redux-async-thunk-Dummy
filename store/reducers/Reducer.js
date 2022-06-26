@@ -1,13 +1,13 @@
 import * as types from '../actions/ActionTypes';
 import apiData from '../../apis/apiData';
 
-const data = [];
+const data = {};
 
 export const dataReducer = (state = data, action) => {
   switch (action.type) {
     case types.GET_TRENDING:
       apiData.call('get', action.value).then((resp) => {
-        state = resp.results;
+        state.trending = resp.results;
       });
       return state;
     case types.GET_TOPRATED:
@@ -19,7 +19,7 @@ export const dataReducer = (state = data, action) => {
           action.value.config
         )
         .then((resp) => {
-          state = resp.results;
+          state.toprated = resp.results;
         });
       return state;
     case types.GET_POPULAR:
@@ -31,7 +31,7 @@ export const dataReducer = (state = data, action) => {
           action.value.config
         )
         .then((resp) => {
-          state = resp.results;
+          state.popular = resp.results;
         });
       return state;
     default:
