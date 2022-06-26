@@ -3,12 +3,12 @@ import { render } from 'react-dom';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
-import counterReducer from './store/reducers/Counter';
 import Navbar from './components/navbar/NavBar';
 import Banner from './components/banner/Banner';
 import Popular from './components/popular/Popular';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { dataReducer } from './store/reducers/Reducer';
 
 /* MiddleWare: logger */
 const logger = (store) => {
@@ -21,12 +21,22 @@ const logger = (store) => {
     };
   };
 };
-
+const middleware = [thunk];
 const rootReducer = combineReducers({
-  /**/ counter: counterReducer,
+  /**/ apiData: dataReducer,
 });
 
-const store = createStore(rootReducer, applyMiddleware(logger, thunk));
+const store = createStore(
+  rootReducer,
+  {},
+  compose(
+    applyMiddleware(...middleware),
+    window.__REDUX_DEVTOOLS_EXTENSION__
+      ? window.__REDUX_DEVTOOLS_EXTENSION__ &&
+          window.__REDUX_DEVTOOLS_EXTENSION__()
+      : (f) => f
+  )
+);
 
 class App extends Component {
   constructor() {
