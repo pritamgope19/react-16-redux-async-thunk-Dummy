@@ -23,7 +23,7 @@ export default function () {
 
   return (
     <Carousel>
-      {trending.map((item) => {
+      {trending?.map((item) => {
         return (
           <Carousel.Item>
             <img
@@ -32,7 +32,7 @@ export default function () {
               alt="First slide"
             />
             <Carousel.Caption>
-              <h3>{item.original_title}</h3>
+              <h3>{item.title}</h3>
               <p>{item.overview}</p>
             </Carousel.Caption>
           </Carousel.Item>
